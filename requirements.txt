@@ -41,7 +41,7 @@ whitenoise==6.5.0
 cryptography==41.0.4
 
 # HTTP client
-httpx==0.25.0
+httpx>=0.25.2,<0.26
 
 # Environment management
 python-decouple==3.8
