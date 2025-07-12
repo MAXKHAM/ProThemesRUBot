@@ -1,0 +1,78 @@
+{
+  "premium_templates": [
+    {
+      "id": 1,
+      "name": "Современный SaaS Лендинг",
+      "category": "saas",
+      "price": 15000,
+      "description": "Премиум лендинг для SaaS продуктов с современным дизайном",
+      "features": ["Адаптивный дизайн", "Анимации", "Формы", "Аналитика"],
+      "preview_image": "https://via.placeholder.com/300x200/4A90E2/FFFFFF?text=SaaS+Лендинг"
+    },
+    {
+      "id": 2,
+      "name": "Креативное Агентство",
+      "category": "agency",
+      "price": 12000,
+      "description": "Стильный сайт для креативных агентств и дизайнеров",
+      "features": ["Портфолио", "Галерея", "Контактная форма", "Блог"],
+      "preview_image": "https://via.placeholder.com/300x200/50C878/FFFFFF?text=Агентство"
+    },
+    {
+      "id": 3,
+      "name": "Премиум E-commerce",
+      "category": "ecommerce",
+      "price": 25000,
+      "description": "Полнофункциональный интернет-магазин с платежами",
+      "features": ["Каталог", "Корзина", "Оплата", "Личный кабинет"],
+      "preview_image": "https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=E-commerce"
+    },
+    {
+      "id": 4,
+      "name": "Корпоративный сайт",
+      "category": "corporate",
+      "price": 18000,
+      "description": "Профессиональный корпоративный сайт для бизнеса",
+      "features": ["О компании", "Услуги", "Команда", "Контакты"],
+      "preview_image": "https://via.placeholder.com/300x200/9B59B6/FFFFFF?text=Корпоративный"
+    },
+    {
+      "id": 5,
+      "name": "Ресторан и кафе",
+      "category": "restaurant",
+      "price": 10000,
+      "description": "Стильный сайт для ресторанов и кафе",
+      "features": ["Меню", "Бронирование", "Галерея", "Отзывы"],
+      "preview_image": "https://via.placeholder.com/300x200/F39C12/FFFFFF?text=Ресторан"
+    },
+    {
+      "id": 6,
+      "name": "Недвижимость",
+      "category": "realestate",
+      "price": 14000,
+      "description": "Сайт для агентств недвижимости",
+      "features": ["Каталог объектов", "Поиск", "Калькулятор", "Консультации"],
+      "preview_image": "https://via.placeholder.com/300x200/3498DB/FFFFFF?text=Недвижимость"
+    }
+  ],
+  "basic_templates": [
+    {
+      "id": 101,
+      "name": "Простой лендинг",
+      "category": "landing",
+      "price": 5000,
+      "description": "Базовый лендинг для малого бизнеса",
+      "features": ["Одностраничный", "Адаптивный", "Форма обратной связи"],
+      "preview_image": "https://via.placeholder.com/300x200/95A5A6/FFFFFF?text=Лендинг"
+    },
+    {
+      "id": 102,
+      "name": "Портфолио",
+      "category": "portfolio",
+      "price": 4000,
+      "description": "Простое портфолио для фрилансеров",
+      "features": ["Галерея работ", "О себе", "Контакты"],
+      "preview_image": "https://via.placeholder.com/300x200/E74C3C/FFFFFF?text=Портфолио"
+    }
+  ]
+} 

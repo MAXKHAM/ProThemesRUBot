@@ -24,36 +24,53 @@ ADMIN_CHAT_ID = os.getenv('TELEGRAM_ADMIN_CHAT_ID')
 
 def load_templates():
     """Load templates from JSON files"""
-    try:
-        with open('templates/blocks/premium_templates.json', 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        logger.warning("Templates file not found, using default")
-        return {
-            "premium_templates": [
-                {
-                    "id": 1,
-                    "name": "Современный SaaS Лендинг",
-                    "category": "saas",
-                    "price": 15000,
-                    "description": "Премиум лендинг для SaaS продуктов"
-                },
-                {
-                    "id": 2,
-                    "name": "Креативное Агентство",
-                    "category": "agency",
-                    "price": 12000,
-                    "description": "Стильный сайт для креативных агентств"
-                },
-                {
-                    "id": 3,
-                    "name": "Премиум E-commerce",
-                    "category": "ecommerce",
-                    "price": 25000,
-                    "description": "Полнофункциональный интернет-магазин"
-                }
-            ]
-        }
+    template_paths = [
+        'templates/blocks/premium_templates.json',
+        '../templates/blocks/premium_templates.json',
+        'design_templates.json',
+        '../design_templates.json'
+    ]
+    
+    for path in template_paths:
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                # Если файл содержит вложенную структуру
+                if 'premium_templates' in data:
+                    return data
+                elif 'templates' in data:
+                    return {"premium_templates": data['templates']}
+                else:
+                    return {"premium_templates": data}
+        except FileNotFoundError:
+            continue
+    
+    logger.warning("Templates file not found, using default")
+    return {
+        "premium_templates": [
+            {
+                "id": 1,
+                "name": "Современный SaaS Лендинг",
+                "category": "saas",
+                "price": 15000,
+                "description": "Премиум лендинг для SaaS продуктов"
+            },
+            {
+                "id": 2,
+                "name": "Креативное Агентство",
+                "category": "agency",
+                "price": 12000,
+                "description": "Стильный сайт для креативных агентств"
+            },
+            {
+                "id": 3,
+                "name": "Премиум E-commerce",
+                "category": "ecommerce",
+                "price": 25000,
+                "description": "Полнофункциональный интернет-магазин"
+            }
+        ]
+    }
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /start command"""

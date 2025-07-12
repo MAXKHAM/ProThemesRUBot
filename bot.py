@@ -71,10 +71,32 @@ class TemplateManager:
     def _load_templates(self) -> List[Dict]:
         """Загрузка шаблонов из локального файла"""
         try:
-            with open('../design_templates.json', 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except FileNotFoundError:
+            # Пробуем разные пути к файлу шаблонов
+            template_paths = [
+                'templates/blocks/premium_templates.json',
+                '../templates/blocks/premium_templates.json',
+                'design_templates.json',
+                '../design_templates.json'
+            ]
+            
+            for path in template_paths:
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                        # Если файл содержит вложенную структуру
+                        if 'premium_templates' in data:
+                            return data['premium_templates']
+                        elif 'templates' in data:
+                            return data['templates']
+                        else:
+                            return data
+                except FileNotFoundError:
+                    continue
+            
             logger.warning("Файл шаблонов не найден, используем демо-данные")
+            return self._get_demo_templates()
+        except Exception as e:
+            logger.error(f"Ошибка загрузки шаблонов: {e}")
             return self._get_demo_templates()
     
     def _get_demo_templates(self) -> List[Dict]:
